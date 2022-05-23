@@ -1,35 +1,34 @@
-  {
-        "motorcycles": [
-            {
-                "id": 1,
-                "brand": "Yamaha",
-                "model": "TDM 850"
-            },
-            {
-                "id": 2,
-                "brand": "Suzuki",
-                "model": "Bandit 600"
-            },
-            {
-                "id": 3,
-                "brand": "Yamaha",
-                "model": "V-Max 1200"
-            },
-            {
-                "id": 4,
-                "brand": "Triumph",
-                "model": "Tiger 955i"
-            },
-            {
-                "id": 5,
-                "brand": "Suzuki",
-                "model": "GSF 600S" 
-            },
-            {
-                "id": 6,
-                "brand": "Yamaha",
-                "model": "XV 750"
-            }
-
-        ]
-    }
+{
+    "motorcycles": [
+        {
+            "id": 1,
+            "brand": "Yamaha",
+            "model": "TDM 850"
+        },
+        {
+            "id": 2,
+            "brand": "Suzuki",
+            "model": "Bandit 600"
+        },
+        {
+            "id": 3,
+            "brand": "Yamaha",
+            "model": "V-Max 1200"
+        },
+        {
+            "id": 4,
+            "brand": "Triumph",
+            "model": "Tiger 955i"
+        },
+        {
+            "id": 5,
+            "brand": "Suzuki",
+            "model": "GSF 600S"
+        },
+        {
+            "id": 6,
+            "brand": "Yamaha",
+            "model": "XV 750"
+        }
+    ]
+}
