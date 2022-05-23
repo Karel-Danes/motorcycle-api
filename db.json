@@ -1,19 +1,21 @@
-{
-    "motorcycles": [
-        {
-            "id" : 1,
-            "brand" : "Yamaha",
-            "model" : "TDM 850"
-        },
-        {
-            "id" : 2,
-            "brand" : "Suzuki",
-            "model" : "Bandit 600"
-        },
-        {
-            "id": "3",
-            "brand": "Yamaha",
-            "model": "V-Max 1200"
-        }
-    ]
-}
+[
+    {
+        "motorcycles": [
+            {
+                "id": 1,
+                "brand": "Yamaha",
+                "model": "TDM 850"
+            },
+            {
+                "id": 2,
+                "brand": "Suzuki",
+                "model": "Bandit 600"
+            },
+            {
+                "id": "3",
+                "brand": "Yamaha",
+                "model": "V-Max 1200"
+            }
+        ]
+    }
+]
