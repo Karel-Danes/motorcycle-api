@@ -1,0 +1,23 @@
+{
+  "name": "motorcycle-api",
+  "version": "1.0.0",
+  "description": "version 1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Karel-Danes/motorcycle-api.git"
+  },
+  "author": "Karel Danes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Karel-Danes/motorcycle-api/issues"
+  },
+  "homepage": "https://github.com/Karel-Danes/motorcycle-api#readme",
+  "dependencies": {
+    "json-server": "^0.17.0"
+  }
+}
