@@ -14,7 +14,7 @@ jobs:
       - uses: convictional/trigger-workflow-and-wait@v1.6.1
         with:
           owner: Karel-Danes
-          repo: cypress-api
+          repo: cypress-repo
           github_token: ${{ secrets.G_ACCESS_TOKEN }}
           workflow_file_name: main.yml
       - name: conclusion
