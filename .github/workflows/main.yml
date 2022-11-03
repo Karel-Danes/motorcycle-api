@@ -21,7 +21,7 @@ jobs:
           workflow_file_name: main.yml
           ref: master
          # client_payload: '{"logLevel": "1","tags":"blabla","environment":"hele"}'
-
+          client_payload: "{}"
       - name: conclusion
         run: |
           echo "result is..."
