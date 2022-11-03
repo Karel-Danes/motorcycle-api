@@ -20,7 +20,7 @@ jobs:
           wait_interval: 6
           workflow_file_name: main.yml
           ref: master
-          client_payload: "{ahoj}"
+          client_payload: '{"ahoj":true,"zdar":"blabla"}'
 
       - name: conclusion
         run: |
