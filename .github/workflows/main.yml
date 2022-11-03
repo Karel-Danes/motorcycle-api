@@ -15,7 +15,6 @@ jobs:
         with:
           owner: Karel-Danes
           repo: cypress-repo
-          GITHUB_PERSONAL_ACCESS_TOKEN
           
           #github_token: ${{ secrets.SECRET_PERSONAL_TOKEN }}
           github_token: ${{ secrets.GITHUB_PERSONAL_ACCESS_TOKEN }}
