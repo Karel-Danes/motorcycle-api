@@ -15,7 +15,7 @@ jobs:
         uses: aurelien-baudet/workflow-dispatch@v2
         with:
          workflow: main.yml
-         repo: cypress-repo
+         repo: Karel-Danes/cypress-repo
          token: ${{ secrets.PERSONAL_TOKEN }}
        #  inputs: '{ "message": "blah blah", "debug": true }'
       - name: conclusion
