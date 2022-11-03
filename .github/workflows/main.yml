@@ -11,16 +11,17 @@ jobs:
         run: |
           echo "simulation of backend building..."
           sleep 1s
+
       - uses: convictional/trigger-workflow-and-wait@v1.6.4
         with:
           owner: Karel-Danes
           repo: cypress-repo
-          
-          #github_token: ${{ secrets.SECRET_PERSONAL_TOKEN }}
           github_token: ${{ secrets.PERSONAL_TOKEN }}
           wait_interval: 6
           workflow_file_name: main.yml
           ref: master
+
+          
       - name: conclusion
         run: |
           echo "result is..."
