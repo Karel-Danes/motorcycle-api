@@ -11,16 +11,13 @@ jobs:
         run: |
           echo "simulation of backend building..."
           sleep 5s
-      - uses: convictional/trigger-workflow-and-wait@v1.6.4
+      - name: Invoke workflow in another repo with inputs
+        uses: aurelien-baudet/workflow-dispatch@v2
         with:
-          owner: Karel-Danes
-          repo: cypress-repo
-          
-          #github_token: ${{ secrets.SECRET_PERSONAL_TOKEN }}
-          github_token: ${{ secrets.G_ACCESS_TOKEN }}
-          wait_interval: 6
-          workflow_file_name: main.yml
-          ref: master
+         workflow: Some Workflow
+         repo: benc-uk/example
+         token: ${{ secrets.PERSONAL_TOKEN }}
+       #  inputs: '{ "message": "blah blah", "debug": true }'
       - name: conclusion
         run: |
           echo "result is..."
