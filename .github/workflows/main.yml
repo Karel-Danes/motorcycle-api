@@ -11,7 +11,7 @@ jobs:
         run: |
           echo "simulation of backend building..."
           sleep 5s
-      - uses: convictional/trigger-workflow-and-wait@v1.6.3
+      - uses: convictional/trigger-workflow-and-wait@v1.6.1
         with:
           owner: Karel-Danes
           repo: cypress-repo
