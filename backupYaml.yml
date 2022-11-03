@@ -1,0 +1,24 @@
+name: json-server
+on:
+  push:
+  
+jobs:
+  build:
+    name: backend deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: backend deploy
+        run: |
+          echo "simulation of backend building..."
+          sleep 5s
+      - name: Invoke workflow in another repo with inputs
+        uses: aurelien-baudet/workflow-dispatch@v2
+        with:
+         workflow: cypress-api
+         repo: Karel-Danes/cypress-repo
+         token: ${{ secrets.PERSONAL_TOKEN }}
+       #  inputs: '{ "message": "blah blah", "debug": true }'
+      - name: conclusion
+        run: |
+          echo "result is..."
+          sleep 5s
