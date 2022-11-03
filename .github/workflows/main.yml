@@ -1,7 +1,7 @@
 name: json-server
 on:
   push:
-  
+
 jobs:
   build:
     name: backend deploy
@@ -20,8 +20,8 @@ jobs:
           wait_interval: 6
           workflow_file_name: main.yml
           ref: master
+          client_payload: "{ahoj: true}"
 
-          
       - name: conclusion
         run: |
           echo "result is..."
