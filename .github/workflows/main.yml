@@ -15,7 +15,7 @@ jobs:
         with:
           owner: Karel-Danes
           repo: cypress-repo
-          github_token: ${{ secrets.G_ACCESS_TOKEN }}
+          github_token: ${{ secrets.SECRET_PERSONAL_TOKEN }}
           wait_interval: 6
           workflow_file_name: main.yml
           ref: master
