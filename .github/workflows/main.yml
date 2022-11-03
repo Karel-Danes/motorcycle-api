@@ -20,7 +20,7 @@ jobs:
           wait_interval: 6
           workflow_file_name: main.yml
           ref: master
-          client_payload: '{"logLevel": "1","tags":"blabla","environment":"hele"}'
+         # client_payload: '{"logLevel": "1","tags":"blabla","environment":"hele"}'
 
       - name: conclusion
         run: |
