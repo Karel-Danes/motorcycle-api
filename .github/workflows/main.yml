@@ -25,5 +25,5 @@ jobs:
           client_payload: '{"tags":"true", "moon":"false","environment":"alza"}'
       - name: conclusion
         run: |
-          echo "result is... ${{ conclusion }}"
+          echo "result is... ${{ steps.moto-api.outputs.conclusion }}"
           sleep 5s
