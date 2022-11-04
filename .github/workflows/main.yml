@@ -1,7 +1,7 @@
 name: json-server
 on:
   push:
-
+  
 jobs:
   build:
     name: backend deploy
@@ -10,19 +10,19 @@ jobs:
       - name: backend deploy
         run: |
           echo "simulation of backend building..."
-          sleep 1s
-
-      - uses: convictional/trigger-workflow-and-wait@v1.6.4
+          sleep 5s
+      - name: Invoke workflow in another repo with inputs
+        uses: aurelien-baudet/workflow-dispatch@v2
         with:
-          owner: Karel-Danes
-          repo: cypress-repo
-          github_token: ${{ secrets.PERSONAL_TOKEN }}
-          wait_interval: 6
-          workflow_file_name: main.yml
-          ref: master
-         # client_payload: '{"logLevel": "1","tags":"blabla","environment":"hele"}'
-          client_payload: '{ "message": "blah blah", "debug": true }'
+         workflow: cypress-api
+         repo: Karel-Danes/cypress-repo
+         token: ${{ secrets.PERSONAL_TOKEN }}
+         inputs: '{ "message": "blah blah", "debug": true }'
       - name: conclusion
         run: |
           echo "result is..."
           sleep 5s
+
+
+
+          
