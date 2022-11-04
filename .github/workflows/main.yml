@@ -21,7 +21,6 @@ jobs:
           wait_interval: 10
           workflow_file_name: main.yml
           ref: master
-         # client_payload: '{"logLevel": "1","tags":"blabla","environment":"hele"}'
           client_payload: '{"tags":"true", "moon":"full","environment":"alza"}'
       - name: conclusion
         run: |
