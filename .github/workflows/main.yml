@@ -21,8 +21,8 @@ jobs:
           wait-for-completion: true
           wait-for-completion-interval: 10s
           inputs: '{"tags":"true", "moon":"false","environment":"alza"}'
-        env:
-          TAGS: ${{ inputs.tags }}  
+       # env:
+        #  TAGS: ${{ inputs.tags }}  
       - name: conclusion
         run: |
           echo "result is..."
