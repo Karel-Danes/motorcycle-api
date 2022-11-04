@@ -1,7 +1,9 @@
 name: json-server
+# working 4.11.'22
+
 on:
   push:
-  
+
 jobs:
   build:
     name: backend deploy
@@ -12,13 +14,19 @@ jobs:
           echo "simulation of backend building..."
           sleep 5s
       - name: Invoke workflow in another repo with inputs
+        id: moto-api
         uses: aurelien-baudet/workflow-dispatch@v2
         with:
-         workflow: cypress-api
-         repo: Karel-Danes/cypress-repo
-         token: ${{ secrets.PERSONAL_TOKEN }}
-       #  inputs: '{ "message": "blah blah", "debug": true }'
+          workflow: cypress-api
+          repo: Karel-Danes/cypress-repo
+          token: ${{ secrets.PERSONAL_TOKEN }}
+          ref: master
+          wait-for-completion: true
+          wait-for-completion-interval: 7s
+          inputs: '{"tags":"true", "moon":"false","environment":"alza"}'
+       # env:
+        #  TAGS: ${{ inputs.tags }}  
       - name: conclusion
         run: |
-          echo "result is..."
+          echo "result is...${{ steps.moto-api.outputs.workflow-conclusion }}"
           sleep 5s

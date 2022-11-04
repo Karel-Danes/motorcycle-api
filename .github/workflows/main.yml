@@ -10,21 +10,20 @@ jobs:
       - name: backend deploy
         run: |
           echo "simulation of backend building..."
-          sleep 5s
+          sleep 1s
       - name: Invoke workflow in another repo with inputs
         id: moto-api
-        uses: aurelien-baudet/workflow-dispatch@v2
+        uses: convictional/trigger-workflow-and-wait@v1.6.4
         with:
-          workflow: cypress-api
-          repo: Karel-Danes/cypress-repo
-          token: ${{ secrets.PERSONAL_TOKEN }}
+          owner: Karel-Danes
+          repo: cypress-repo
+          github_token: ${{ secrets.PERSONAL_TOKEN }}
+          wait_interval: 6
+          workflow_file_name: main.yml
           ref: master
-          wait-for-completion: true
-          wait-for-completion-interval: 7s
-          inputs: '{"tags":"true", "moon":"false","environment":"alza"}'
-       # env:
-        #  TAGS: ${{ inputs.tags }}  
+         # client_payload: '{"logLevel": "1","tags":"blabla","environment":"hele"}'
+          client_payload: '{"tags":"true", "moon":"false","environment":"alza"}'
       - name: conclusion
         run: |
-          echo "result is...${{ steps.moto-api.outputs.workflow-conclusion }}"
+          echo "result is... ${{ steps.moto-api.outputs.workflow-conclusion }}"
           sleep 5s
