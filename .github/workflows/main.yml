@@ -12,6 +12,7 @@ jobs:
           echo "simulation of backend building..."
           sleep 5s
       - name: Invoke workflow in another repo with inputs
+        id: moto-api
         uses: aurelien-baudet/workflow-dispatch@v2
         with:
           workflow: cypress-api
@@ -25,5 +26,5 @@ jobs:
         #  TAGS: ${{ inputs.tags }}  
       - name: conclusion
         run: |
-          echo "result is..."
+          echo "result is...${{ steps.moto-api.outputs.workflow-conclusion }}"
           sleep 5s
