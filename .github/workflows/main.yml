@@ -25,4 +25,7 @@ jobs:
       - name: conclusion
         run: |
           echo "result is... ${{ steps.moto-api.outputs.conclusion }}"
+          echo "status is... ${{ steps.moto-api.outputs.status }}"
+          echo "The Cypress logs can be found at ${steps.moto-api.outputs.last_workflow_url}"
+
           sleep 5s
