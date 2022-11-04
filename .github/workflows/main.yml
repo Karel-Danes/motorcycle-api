@@ -20,9 +20,9 @@ jobs:
           ref: master
           wait-for-completion: true
           wait-for-completion-interval: 10s
-          inputs: '{"moon":"sun"}'
+          inputs: '{"tags":"sun"}'
         env:
-          MOON: ${{ inputs.moon }}  
+          TAGS: ${{ inputs.tags }}  
       - name: conclusion
         run: |
           echo "result is..."
