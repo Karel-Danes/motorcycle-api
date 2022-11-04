@@ -1,7 +1,7 @@
 name: json-server
 on:
   push:
-  
+
 jobs:
   build:
     name: backend deploy
@@ -14,19 +14,14 @@ jobs:
       - name: Invoke workflow in another repo with inputs
         uses: aurelien-baudet/workflow-dispatch@v2
         with:
-         workflow: cypress-api
-         repo: Karel-Danes/cypress-repo
-         token: ${{ secrets.PERSONAL_TOKEN }}
-         ref: master
-         wait-for-completion: true
-         wait-for-completion-interval: 10s
-
-         inputs: '{ "message": "blah blah", "debug": true }'
+          workflow: cypress-api
+          repo: Karel-Danes/cypress-repo
+          token: ${{ secrets.PERSONAL_TOKEN }}
+          ref: master
+          wait-for-completion: true
+          wait-for-completion-interval: 10s
+          inputs: '{"message": "blah blah"}'
       - name: conclusion
         run: |
           echo "result is..."
           sleep 5s
-
-
-
-          
