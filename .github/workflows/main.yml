@@ -4,25 +4,25 @@ on:
 
 jobs:
   build:
-    name: backend deploy
+    name: merge request simulation
     runs-on: ubuntu-latest
     steps:
-      - name: backend deploy
-        run: |
-          echo "simulation of backend building..."
-          sleep 1s
-      - name: Invoke workflow in another repo with inputs
+    #  - name: backend deploy
+    #    run: |
+    #      echo "simulation of backend building..."
+    #      sleep 1s
+      - name: run e2e tests from separate repo
         id: moto-api
         uses: convictional/trigger-workflow-and-wait@v1.6.4
         with:
           owner: Karel-Danes
           repo: cypress-repo
           github_token: ${{ secrets.PERSONAL_TOKEN }}
-          wait_interval: 6
+          wait_interval: 10
           workflow_file_name: main.yml
           ref: master
          # client_payload: '{"logLevel": "1","tags":"blabla","environment":"hele"}'
-          client_payload: '{"tags":"true", "moon":"false","environment":"alza"}'
+          client_payload: '{"tags":"true", "moon":"full","environment":"alza"}'
       - name: conclusion
         run: |
           echo "result is... ${{ steps.moto-api.outputs.conclusion }}"
