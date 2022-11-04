@@ -23,9 +23,10 @@ jobs:
           ref: master
           client_payload: '{"tags":"true", "moon":"full","environment":"alza"}'
       - name: conclusion
+        if: ${{ steps.moto-api.outputs.conclusion == 'success'}}
         run: |
           echo "result is... ${{ steps.moto-api.outputs.conclusion }}"
-          echo "status is... ${{ steps.moto-api.outputs.stdout }}"
+          echo "### IT'S DONE! :rocket:" >> $GITHUB_STEP_SUMMARY
           
 
           sleep 5s
