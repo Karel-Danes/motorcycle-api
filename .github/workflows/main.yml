@@ -7,10 +7,10 @@ jobs:
     name: merge request simulation
     runs-on: ubuntu-latest
     steps:
-    #  - name: backend deploy
-    #    run: |
-    #      echo "simulation of backend building..."
-    #      sleep 1s
+      #  - name: backend deploy
+      #    run: |
+      #      echo "simulation of backend building..."
+      #      sleep 1s
       - name: run e2e tests from separate repo
         id: moto-api
         uses: convictional/trigger-workflow-and-wait@v1.6.4
@@ -26,6 +26,6 @@ jobs:
         run: |
           echo "result is... ${{ steps.moto-api.outputs.conclusion }}"
           echo "status is... ${{ steps.moto-api.outputs.status }}"
-          echo "The Cypress logs can be found at ${steps.moto-api.outputs.last_workflow_url}"
+          echo "The Cypress logs can be found at ${{ steps.moto-api.outputs.last_workflow_url }}"
 
           sleep 5s
