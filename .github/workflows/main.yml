@@ -26,5 +26,7 @@ jobs:
         if: ${{ steps.moto-api.outputs.conclusion == 'success'}}
         run: |
           echo "result is... ${{ steps.moto-api.outputs.conclusion }}"
+          echo "${{ steps.moto-api.outputs.url_output }}" 
+
           echo "### All Cypress tests passed! :rocket: ${{ steps.moto-api.outputs }}"  >> $GITHUB_STEP_SUMMARY
           
