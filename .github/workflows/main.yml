@@ -20,7 +20,7 @@ jobs:
           ref: master
           wait-for-completion: true
           wait-for-completion-interval: 10s
-          inputs: '{"tags":"true"}'
+          inputs: '{"tags":"true", "moon":"false"}'
         env:
           TAGS: ${{ inputs.tags }}  
       - name: conclusion
