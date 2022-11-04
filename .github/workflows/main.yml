@@ -17,7 +17,7 @@ jobs:
          workflow: cypress-api
          repo: Karel-Danes/cypress-repo
          token: ${{ secrets.PERSONAL_TOKEN }}
-         inputs: '{ "message": "blah blah", "debug": true }'
+       # inputs: '{ "message": "blah blah", "debug": true }'
       - name: conclusion
         run: |
           echo "result is..."
