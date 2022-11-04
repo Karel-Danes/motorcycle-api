@@ -25,7 +25,7 @@ jobs:
       - name: conclusion
         run: |
           echo "result is... ${{ steps.moto-api.outputs.conclusion }}"
-          echo "status is... ${{ steps.moto-api.outputs }}"
+          echo "status is... ${{ steps.moto-api.outputs.stdout }}"
           
 
           sleep 5s
