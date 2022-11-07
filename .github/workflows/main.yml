@@ -22,16 +22,17 @@ jobs:
           workflow_file_name: main.yml
           ref: master
           client_payload: '{"tags":"true", "moon":"full","environment":"alza","test-case":"alza"}'
-          run: |
-           echo "attempt ${{github.run_attempt}}"
-           echo "ref is ${{github.ref}}"
+   
 
       #  if: ${{ steps.moto-api.outputs.conclusion == 'success'}}
       #  run: |
           
       - name: conclusion
+    
         if: ${{ steps.moto-api.outputs.conclusion == 'success'}}
         run: |
+          echo "attempt ${{github.run_attempt}}"
+          echo "ref is ${{github.ref}}"
           echo "result is... ${{ steps.moto-api.outputs.conclusion }}"
           echo "### All Cypress tests passed! :rocket:" 
 
