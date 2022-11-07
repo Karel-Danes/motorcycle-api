@@ -22,6 +22,7 @@ jobs:
           workflow_file_name: main.yml
           ref: master
           client_payload: '{"tags":"true", "moon":"full","environment":"alza","test-case":"alza"}'
+          run: echo "attempt ${{github.run_attempt}}"
 
       #  if: ${{ steps.moto-api.outputs.conclusion == 'success'}}
       #  run: |
