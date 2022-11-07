@@ -35,7 +35,7 @@ jobs:
           echo "ref is ${{github.ref}}"
           echo "result is... ${{ steps.moto-api.outputs.conclusion }}"
           echo "inputs is... ${{ steps.moto-api.outputs }}"
-          echo "env is... ${{ steps.moto-api.outputs }}"
+          echo "env is... ${{ steps.moto-api }}"
 
 
           echo "### All Cypress tests passed! :rocket:" 
