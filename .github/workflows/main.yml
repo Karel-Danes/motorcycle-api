@@ -23,14 +23,14 @@ jobs:
           ref: master
           client_payload: '{"tags":"true", "moon":"full","environment":"alza"}'
 
-        if: ${{ steps.moto-api.outputs.conclusion == 'success'}}
-        run: |
-          echo "### All Cypress tests passed! :rocket:"
+      #  if: ${{ steps.moto-api.outputs.conclusion == 'success'}}
+      #  run: |
+          
       - name: conclusion
         if: ${{ steps.moto-api.outputs.conclusion == 'success'}}
         run: |
           echo "result is... ${{ steps.moto-api.outputs.conclusion }}"
-          echo "${{ steps.moto-api.outputs.url_output }}" 
+          echo "### All Cypress tests passed! :rocket:" 
 
           echo "### All Cypress tests passed! :rocket: ${{ steps.moto-api.outputs }}"  >> $GITHUB_STEP_SUMMARY
           
