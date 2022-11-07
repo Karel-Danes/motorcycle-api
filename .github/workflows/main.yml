@@ -32,5 +32,5 @@ jobs:
           echo "result is... ${{ steps.moto-api.outputs.conclusion }}"
           echo "### All Cypress tests passed! :rocket:" 
 
-          echo "### All Cypress tests passed! :rocket: ${{ steps.moto-api.outputs }}"  >> $GITHUB_STEP_SUMMARY
+          echo "### All Cypress tests passed! :rocket: ${{ steps.moto-api.outputs.registry }}"  >> $GITHUB_STEP_SUMMARY
           
