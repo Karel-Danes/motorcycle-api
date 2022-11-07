@@ -22,6 +22,10 @@ jobs:
           workflow_file_name: main.yml
           ref: master
           client_payload: '{"tags":"true", "moon":"full","environment":"alza"}'
+
+        if: ${{ steps.moto-api.outputs.conclusion == 'success'}}
+        run: |
+          echo "### All Cypress tests passed! :rocket:"
       - name: conclusion
         if: ${{ steps.moto-api.outputs.conclusion == 'success'}}
         run: |
