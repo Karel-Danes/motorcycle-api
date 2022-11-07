@@ -1,5 +1,4 @@
 name: json-server
-# working 4.11.'22
 on:
   push:
 
