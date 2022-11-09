@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: backend deploy
         run: |
-          echo "simulation of backend building..."
+          echo "simulation of backend building.."
           sleep 1s
       - name: run e2e tests from separate repo
         id: moto-api
