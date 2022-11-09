@@ -21,7 +21,7 @@ jobs:
           wait_interval: 10
           workflow_file_name: main.yml
           ref: master
-          client_payload: '{"tags":"true", "moon":"full","environment":"alza","test-case":"alza"}'
+          client_payload: '{"tags":"true","environment":"alza","test-case":"alza"}'
    
 
       #  if: ${{ steps.moto-api.outputs.conclusion == 'success'}}
