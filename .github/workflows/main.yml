@@ -24,7 +24,7 @@ jobs:
           ref: master
           client_payload: '{"tags":"true","environment":"alza","test-case":"alza"}'
         
-      - name: Job succeded
+      - name: Job success
         if: ${{ steps.moto-api.outputs.conclusion == 'success'}}
         run: |
           echo "result is... ${{ steps.moto-api.outputs.conclusion }}"
@@ -32,11 +32,12 @@ jobs:
           echo "ref is ${{github.ref}}"
           echo "### All Cypress tests passed! :rocket: "  >> $GITHUB_STEP_SUMMARY
 
-      - name: Debug Job Failure
+      - name: Job Failure debug
         if: (steps.moto-api.outputs.conclusion == 'failure')
         run: |
           echo "result is... ${{ steps.moto-api.outputs.conclusion }}"
           echo "Detailed logs of Cypress run as a clue here ${{steps.moto-api.outputs.workflow_url}}"
           echo "ref is ${{github.ref}}"
           echo "### Some Cypress tests failed! :skull: "  >> $GITHUB_STEP_SUMMARY
+          exit 1
 
