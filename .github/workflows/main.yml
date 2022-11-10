@@ -13,7 +13,7 @@ jobs:
           sleep 1s
       - name: run e2e tests from separate repo
         id: moto-api
-       # continue-on-error: true
+        continue-on-error: true
         uses: convictional/trigger-workflow-and-wait@v1.6.4
         with:
           owner: Karel-Danes
