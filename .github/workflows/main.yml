@@ -31,13 +31,12 @@ jobs:
     
         if: ${{ steps.moto-api.outputs.conclusion == 'success'}}
         run: |
-          echo "logs are ${{github.event.repository.html_url}}/actions/runs/${{github.run_id}}"
-          echo "attempt ${{github.run_attempt}}"
+          echo "Detailed logs of Cypress run as a clue here ${{steps.moto-api.outputs.workflow_url}}"
           echo "ref is ${{github.ref}}"
-          echo "result is... ${{ steps.moto-api.outputs.conclusion }}"
-          echo "inputs is... ${{ toJSON(steps.moto-api.outputs) }}"
-          echo "env is... ${{ toJSON(steps.moto-api) }}"
 
+          echo "result is... ${{ steps.moto-api.outputs.conclusion }}"
+
+          echo "inputs is... ${{ toJSON(steps.moto-api.outputs) }}"
 
           echo "### All Cypress tests passed! :rocket:" 
 
