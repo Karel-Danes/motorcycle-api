@@ -31,6 +31,7 @@ jobs:
     
         if: ${{ steps.moto-api.outputs.conclusion == 'success'}}
         run: |
+          echo "logs are ${{github.event.repository.html_url}}/actions/runs/${{github.run_id}}"
           echo "attempt ${{github.run_attempt}}"
           echo "ref is ${{github.ref}}"
           echo "result is... ${{ steps.moto-api.outputs.conclusion }}"
