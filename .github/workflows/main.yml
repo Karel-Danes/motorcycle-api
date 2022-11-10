@@ -23,20 +23,20 @@ jobs:
           workflow_file_name: main.yml
           ref: master
           client_payload: '{"tags":"true","environment":"alza","test-case":"alza"}'
-   
-      #  if: ${{ steps.moto-api.outputs.conclusion == 'success'}}
-      #  run: |
-          
-      - name: conclusion
-    
-        #if: ${{ steps.moto-api.outputs.conclusion == 'success'}}
+        
+      - name: Job succeded
+        if: ${{ steps.moto-api.outputs.conclusion == 'success'}}
         run: |
+          echo "result is... ${{ steps.moto-api.outputs.conclusion }}"
           echo "Detailed logs of Cypress run as a clue here ${{steps.moto-api.outputs.workflow_url}}"
           echo "ref is ${{github.ref}}"
-
-          echo "result is... ${{ steps.moto-api.outputs.conclusion }}"
-
-          echo "### All Cypress tests passed! :rocket:" 
-
           echo "### All Cypress tests passed! :rocket: "  >> $GITHUB_STEP_SUMMARY
-          
+
+      - name: Debug Job Failure
+        if: (steps.moto-api.outputs.conclusion == 'failure')
+        run: |
+          echo "result is... ${{ steps.moto-api.outputs.conclusion }}"
+          echo "Detailed logs of Cypress run as a clue here ${{steps.moto-api.outputs.workflow_url}}"
+          echo "ref is ${{github.ref}}"
+          echo "### Some Cypress tests failed! :skull: "  >> $GITHUB_STEP_SUMMARY
+
