@@ -19,7 +19,7 @@ jobs:
           wait_interval: 10
           workflow_file_name: main.yml
           ref: master
-          client_payload: '{"tags":"true","environment":"alza","test-case":"alza"}'
+          client_payload: '{"test-feature-db-name":"test-alza-service","environment":"alza","test-case":"alza"}'
         
       - name: E2E tests Success
         if: ${{ steps.moto-api.outputs.conclusion == 'success'}}
