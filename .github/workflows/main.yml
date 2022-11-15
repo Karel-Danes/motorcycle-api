@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
  
-      - name: run e2e tests from separate repo
+      - name: run e2e tests from separate repo.
         id: moto-api
         continue-on-error: true
         uses: convictional/trigger-workflow-and-wait@v1.6.4 
