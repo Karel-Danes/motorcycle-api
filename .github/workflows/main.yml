@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
  
-      - name: run e2e tests from separate repo
+      - name: run e2e tests from separate repo.
         id: moto-api
         continue-on-error: true
         uses: convictional/trigger-workflow-and-wait@v1.6.4 
@@ -19,7 +19,7 @@ jobs:
           wait_interval: 10
           workflow_file_name: main.yml
           ref: master
-          client_payload: '{"cypress_test_feature_db_name":"test-alza-service","cypress_test_case":"alza"}'
+          client_payload: '{"test_feature_db_name":"test-alza-service","test_case":"alza"}'
         
       - name: E2E tests Success
         if: ${{ steps.moto-api.outputs.conclusion == 'success'}}
