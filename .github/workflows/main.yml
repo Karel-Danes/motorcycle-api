@@ -30,9 +30,11 @@ jobs:
           echo "### :white_check_mark: All E2E tests passed! :white_check_mark: log here ${{steps.moto-api.outputs.workflow_url}} "  >> $GITHUB_STEP_SUMMARY
 
       - name: E2E tests Failure debug
-        if: (steps.moto-api.outputs.conclusion == 'failure')
+        if: (steps.moto-api.outputs.conclusion != 'success')
         run: |
           echo "result is... ${{ steps.moto-api.outputs.conclusion }}"
+          echo "outcome: ${{toJSON(steps.moto-api.outcome)}}"
+          echo "outputs: ${{toJSON(steps.moto-api.outputs)}}"
           echo "Detailed logs of Cypress run as a clue here ${{steps.moto-api.outputs.workflow_url}}"
           echo "ref is ${{github.ref}}"
           echo "### Some :X: E2E tests failed! :X: debug here ${{steps.moto-api.outputs.workflow_url}}"  >> $GITHUB_STEP_SUMMARY
