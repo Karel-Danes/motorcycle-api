@@ -19,7 +19,7 @@ jobs:
           wait_interval: 10
           workflow_file_name: main.yml
           ref: master
-          client_payload: '{"test_feature_db_name":"franta","test_case":"alza","hele":"TDM4tx850"}'
+          client_payload: '{"test_feature_db_name":"franta","test_case":"kaufland","hele":"TDM4tx850"}'
         
       - name: E2E tests Success
         if: ${{ steps.moto-api.outputs.conclusion == 'success'}}
