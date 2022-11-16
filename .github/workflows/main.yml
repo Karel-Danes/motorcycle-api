@@ -19,7 +19,7 @@ jobs:
           wait_interval: 10
           workflow_file_name: main.yml
           ref: master
-          client_payload: '{"test_feature_db_name":"franta","test_case":"kaufland","hele":"TDM4tx850"}'
+          client_payload: '{"test_feature_db_name":"franta","test_cas":"kaufland","hele":"TDM4tx850"}'
         
       - name: E2E tests Success
         if: ${{ steps.moto-api.outputs.conclusion == 'success'}}
@@ -37,6 +37,6 @@ jobs:
           echo "remote repository output conclusion: ${{toJSON(steps.moto-api.outputs)}}"
           echo "Detailed logs of Cypress run as a clue likely here (proper inputs required): ${{steps.moto-api.outputs.workflow_url}}"
           echo "ref is ${{github.ref}}"
-          echo "### Some :X: E2E tests failed! :X: debug here ${{steps.moto-api.outputs.workflow_url}}"  >> $GITHUB_STEP_SUMMARY
+          echo "### Some ❌ E2E tests failed! ❌ debug here ${{steps.moto-api.outputs.workflow_url}}"  >> $GITHUB_STEP_SUMMARY
           exit 1 
 
