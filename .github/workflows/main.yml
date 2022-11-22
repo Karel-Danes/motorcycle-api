@@ -19,7 +19,7 @@ jobs:
           wait_interval: 10
           workflow_file_name: main.yml
           ref: master
-          client_payload: '{"test_feature_db_name":"franta","test_case":"alza","hele": "{test:5}"}'
+          client_payload: '{"test_feature_db_name":"franta","test_case":"alza","randomizer_active": "true","products_amount":"12"}'
         
       - name: E2E tests Success
         if: ${{ steps.moto-api.outputs.conclusion == 'success'}}
@@ -27,7 +27,7 @@ jobs:
           echo "result is... ${{ steps.moto-api.outputs.conclusion }}"
           echo "local step e2e calling outcome: ${{toJSON(steps.moto-api.outcome)}}"
           echo "Detailed logs of Cypress run as a clue here ${{steps.moto-api.outputs.workflow_url}}"
-          echo "### :white_check_mark: All E2E tests passed! :white_check_mark: log here ${{steps.moto-api.outputs.workflow_url}} "  >> $GITHUB_STEP_SUMMARY
+          echo "## :white_check_mark: All E2E tests passed! :white_check_mark: log here ${{steps.moto-api.outputs.workflow_url}}"  >> $GITHUB_STEP_SUMMARY
 
       - name: E2E tests Failure debug
         if: (steps.moto-api.outputs.conclusion != 'success')
@@ -36,6 +36,6 @@ jobs:
           echo "local step e2e calling outcome: ${{toJSON(steps.moto-api.outcome)}}"
           echo "remote repository output conclusion: ${{toJSON(steps.moto-api.outputs)}}"
           echo "Detailed logs of Cypress run as a clue likely here (proper inputs required): ${{steps.moto-api.outputs.workflow_url}}"
-          echo "### Some ❌ E2E tests failed! ❌ debug here ${{steps.moto-api.outputs.workflow_url}}"  >> $GITHUB_STEP_SUMMARY
+          echo "## Some ❌ E2E tests failed! ❌ debug here ${{steps.moto-api.outputs.workflow_url}}"  >> $GITHUB_STEP_SUMMARY
           exit 1 
 
