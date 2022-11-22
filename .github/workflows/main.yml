@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
  
-      - name: run e2e tests from separate repo.
+      - name: Run e2e tests from separate repo.
         id: moto-api
         continue-on-error: true
         uses: convictional/trigger-workflow-and-wait@v1.6.4 
@@ -19,25 +19,23 @@ jobs:
           wait_interval: 10
           workflow_file_name: main.yml
           ref: master
-          client_payload: '{"test_feature_db_name":"franta","test_case":"alza","hele":"TDM4tx850"}'
+          client_payload: '{"test_feature_db_name":"franta","test_case":"alza","hele":"{active: true, amonunt: 25}"}'
         
       - name: E2E tests Success
         if: ${{ steps.moto-api.outputs.conclusion == 'success'}}
         run: |
           echo "result is... ${{ steps.moto-api.outputs.conclusion }}"
-          echo "local reporitory "Cypress call" outcome: ${{toJSON(steps.moto-api.outcome)}}"
+          echo "local step e2e calling outcome: ${{toJSON(steps.moto-api.outcome)}}"
           echo "Detailed logs of Cypress run as a clue here ${{steps.moto-api.outputs.workflow_url}}"
-          echo "ref is ${{github.ref}}"
           echo "### :white_check_mark: All E2E tests passed! :white_check_mark: log here ${{steps.moto-api.outputs.workflow_url}} "  >> $GITHUB_STEP_SUMMARY
 
       - name: E2E tests Failure debug
         if: (steps.moto-api.outputs.conclusion != 'success')
         run: |
           echo "result is... ${{ steps.moto-api.outputs.conclusion }}"      
-          echo "local reporitory "Cypress call" outcome: ${{toJSON(steps.moto-api.outcome)}}"
+          echo "local step e2e calling outcome: ${{toJSON(steps.moto-api.outcome)}}"
           echo "remote repository output conclusion: ${{toJSON(steps.moto-api.outputs)}}"
           echo "Detailed logs of Cypress run as a clue likely here (proper inputs required): ${{steps.moto-api.outputs.workflow_url}}"
-          echo "ref is ${{github.ref}}"
           echo "### Some ❌ E2E tests failed! ❌ debug here ${{steps.moto-api.outputs.workflow_url}}"  >> $GITHUB_STEP_SUMMARY
           exit 1 
 
