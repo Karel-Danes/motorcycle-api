@@ -21,7 +21,7 @@ jobs:
       - name: Dump matrix context
         run: echo '${{ toJSON(matrix) }}'
  
-      - name: Run e2e tests from separate repo
+      - name: Run e2e tests from separate repo.
         id: moto-api
         continue-on-error: true
         uses: convictional/trigger-workflow-and-wait@v1.6.4 
