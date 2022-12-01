@@ -20,6 +20,9 @@ jobs:
         run: echo '${{ toJSON(strategy) }}'
       - name: Dump matrix context
         run: echo '${{ toJSON(matrix) }}'
+
+      - name: parser
+        run: echo "TARGET_ENVIRONMENT=${{github.actor}}" >> $GITHUB_ENV
  
       - name: Run e2e tests from separate repo.
         id: moto-api
@@ -32,7 +35,7 @@ jobs:
           wait_interval: 10
           workflow_file_name: main.yml
           ref: master
-          client_payload: '{"test_feature_branch_version":"test-alza-service","test_case":"TC_001_e2e_alza","randomizer_active":"true","products_amount":"${{github.actor}}"}'
+          client_payload: '{"test_feature_branch_version":"test-alza-service","test_case":"TC_001_e2e_alza","randomizer_active":"true","products_amount":"$TARGET_ENVIRONMENT"}'
         
       - name: E2E tests Success
         if: ${{ steps.moto-api.outputs.conclusion == 'success'}}
