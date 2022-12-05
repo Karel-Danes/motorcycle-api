@@ -26,6 +26,7 @@ jobs:
          echo "TARGET_ENVIRONMENT=prod" >> $GITHUB_ENV
          echo "PACKAGE_VERSION=1.0.0" >> $GITHUB_ENV
          echo "GITHUB_SHA_SHORT=ce45cd1" >> $GITHUB_ENV
+         echo "REPOSITORY_NAME=${{github.repository}}" >> $GITHUB_ENV
  
       - name: Run e2e tests from separate repo
         id: moto-api
@@ -38,7 +39,7 @@ jobs:
           wait_interval: 10
           workflow_file_name: main.yml
           ref: master
-          client_payload: '{"test_feature_branch_version":"${{ env.TARGET_ENVIRONMENT }}-v${{ env.PACKAGE_VERSION }}-${{ env.GITHUB_SHA_SHORT }}","test_case":"TC_001_e2e_alza","randomizer_active":"true","products_amount":"20"}'
+          client_payload: '{"test_feature_branch_version":"${{ env.TARGET_ENVIRONMENT }}-v${{ env.PACKAGE_VERSION }}-${{ env.GITHUB_SHA_SHORT }}-${{ env.REPOSITORY_NAME }}","test_case":"TC_001_e2e_alza","randomizer_active":"true","products_amount":"20"}'
         
       - name: E2E tests Success
         if: ${{ steps.moto-api.outputs.conclusion == 'success'}}
