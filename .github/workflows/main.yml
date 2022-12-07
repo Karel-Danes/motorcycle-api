@@ -24,11 +24,11 @@ jobs:
       - name: Docker image simulator
         run: |
          echo "TARGET_ENVIRONMENT=prod" >> $GITHUB_ENV
-         echo "PACKAGE_VERSION=1.0.0" >> $GITHUB_ENV
-         echo "GITHUB_SHA_SHORT=ce45cd1" >> $GITHUB_ENV
+         echo "PACKAGE_VERSION=1.2.3" >> $GITHUB_ENV
+         echo "GITHUB_SHA_SHORT=ce45cd" >> $GITHUB_ENV
          echo "REPOSITORY_NAME=${{github.repository}}" >> $GITHUB_ENV
  
-      - name: Run e2e tests from separate repo.
+      - name: Run e2e tests from separate repo
         id: moto-api
         continue-on-error: true
         uses: convictional/trigger-workflow-and-wait@v1.6.4 
