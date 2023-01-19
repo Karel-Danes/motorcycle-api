@@ -47,6 +47,7 @@ jobs:
         
       - name: E2E tests Success
         if: ${{ steps.moto-api.outputs.conclusion == 'success'}}
+      
         run: |
           echo "result is... ${{ steps.moto-api.outputs.conclusion }}"
           echo "local step e2e calling outcome: ${{toJSON(steps.moto-api.outcome)}}"
