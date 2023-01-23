@@ -1,7 +1,5 @@
 name: json-server
 on:
-  schedule:
-    - cron: '* * * * *'
   push:
 
 jobs:
