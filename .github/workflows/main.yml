@@ -45,7 +45,7 @@ jobs:
                             "randomizer_active":"true",
                             "products_qtty":"20",
                             "cut_active": "false",
-                            "cut_qtty":"ahoj"}'
+                            "CUT_QTTY":"ahoj"}'
         
       - name: E2E tests Success
         if: ${{ steps.moto-api.outputs.conclusion == 'success'}}
