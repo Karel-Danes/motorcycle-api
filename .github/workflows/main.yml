@@ -28,7 +28,7 @@ jobs:
          echo "GITHUB_SHA_SHORT=ce45cv4" >> $GITHUB_ENV
          echo "REPOSITORY_NAME=${{github.repository}}" >> $GITHUB_ENV
  
-      - name: Run e2e tests from separate repo.
+      - name: Run e2e tests from separate repo
         id: moto-api
         continue-on-error: true
         uses: convictional/trigger-workflow-and-wait@v1.6.4 
@@ -43,7 +43,9 @@ jobs:
                             "service_name":"${{ env.REPOSITORY_NAME }}",
                             "test_case":"TC_001_e2e_alza",
                             "randomizer_active":"true",
-                            "products_amount":"20"}'
+                            "products_qtty":"20",
+                            "cut_active": "false",
+                            "cut_qtty":"15"}'
         
       - name: E2E tests Success
         if: ${{ steps.moto-api.outputs.conclusion == 'success'}}
