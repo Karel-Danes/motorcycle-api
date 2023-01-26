@@ -24,7 +24,7 @@ jobs:
       - name: Docker image simulator
         run: |
          echo "TARGET_ENVIRONMENT=pro" >> $GITHUB_ENV
-         echo "PACKAGE_VERSION=1.22" >> $GITHUB_ENV
+         echo "PACKAGE_VERSION=1.2.2" >> $GITHUB_ENV
          echo "GITHUB_SHA_SHORT=ce45cv4000000000000" >> $GITHUB_ENV
          echo "REPOSITORY_NAME=${{github.repository}}" >> $GITHUB_ENV
 
