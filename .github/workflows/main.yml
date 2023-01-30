@@ -71,3 +71,10 @@ jobs:
           echo "## Some ❌ E2E tests failed! ❌ debug here ${{steps.moto-api.outputs.workflow_url}}"  >> $GITHUB_STEP_SUMMARY
           exit 1 
 
+      - name: workflow url print
+        run: | 
+          echo "https://github.com/Karel-Danes/cypress-repo/actions/runs/${{github.run_id}}"
+            
+        
+
+
