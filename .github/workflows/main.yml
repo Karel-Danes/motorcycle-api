@@ -73,7 +73,7 @@ jobs:
 
       - name: workflow url print
         run: | 
-          echo "https://github.com/Karel-Danes/cypress-repo/actions/runs/${{github.run_id}}"
+          echo "https://github.com/Karel-Danes/motorcycle-api/actions/runs/${{github.run_id}}"
             
         
 
