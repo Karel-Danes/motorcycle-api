@@ -42,7 +42,7 @@ jobs:
           repo: cypress-repo
           github_token: ${{ secrets.PERSONAL_TOKEN }}
           wait_interval: 10
-          workflow_file_name: main2.yml
+          workflow_file_name: main.yml
           ref: master
           client_payload: '{"test_feature_branch_version":"v${{ env.PACKAGE_VERSION }}-${{ env.TARGET_ENVIRONMENT }}-${{ env.GITHUB_SHA_SHORT }}",
                             "service_name":"${{ env.REPOSITORY_NAME }}",
