@@ -46,7 +46,7 @@ jobs:
           ref: master
           client_payload: '{"test_feature_branch_version":"v${{ env.PACKAGE_VERSION }}-${{ env.TARGET_ENVIRONMENT }}-${{ env.GITHUB_SHA_SHORT }}",
                             "service_name":"${{ env.REPOSITORY_NAME }}",
-                            "test_case":"TC_001_e2e_alza",
+                            "test_case":"TC_002_e2e_kaufland",
                             "randomizer_active":"true",
                             "products_qtty":"20",
                             "cut_active": "false",
